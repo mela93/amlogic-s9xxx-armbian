@@ -59,7 +59,8 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
+    # runs-on: ubuntu-22.04
     if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
 
     steps:
@@ -91,6 +92,7 @@ jobs:
           kernel_package: ${{ inputs.kernel_package }}
           kernel_sign: ${{ inputs.kernel_sign }}
           kernel_config: ${{ inputs.kernel_config }}
+          
 
       - name: Upload Kernel to Release
         uses: ncipollo/release-action@main
